@@ -4,31 +4,30 @@ This is just a basic Example framework which uses JUnit, Selenium with Cucumber 
 ### STEPS TO CREATE YOUR OWN CUCUMBER FRAMEWORK
 
 1.
-**Create a new Project in Intellij:(Or another IDE)**
-File > New > Project > Maven Project > Enter Name of your project eg: CucumberFrameworkExample > Click on Finish
-
-2.1.
-**Installation:**
-Select the latest version here and Add maven dependency in the pom.xml file
-cucumber-java  : https://mvnrepository.com/artifact/io.cucumber/cucumber-java
-cucumber-junit : https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
-cucumber-core : https://mvnrepository.com/artifact/io.cucumber/cucumber-core
-
-2.2.
-For my example, I'm taking chrome driver dependency for example sceanrio.
-selenium-chrome-driver : https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver
-
-Download Selenium Chrome driver and Add downloaded file in the resources directory.
-Here - https://chromedriver.chromium.org/downloads
-
+**Create a new Project in Intellij:(Or another IDE)**<br>
+File > New > Project > Maven Project > Enter Name of your project eg: CucumberFrameworkExample > Click on Finish<br>
+<br>
+2.
+**Installation:**<br>
+Select the latest version here and Add maven dependency in the pom.xml file<br>
+cucumber-java  : https://mvnrepository.com/artifact/io.cucumber/cucumber-java <br>
+cucumber-junit : https://mvnrepository.com/artifact/io.cucumber/cucumber-junit <br>
+cucumber-core : https://mvnrepository.com/artifact/io.cucumber/cucumber-core <br>
+<br>
+For my example, I'm taking chrome driver dependency for example sceanrio.<br>
+selenium-chrome-driver : https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver <br>
+<br>
+Download Selenium Chrome driver and Add downloaded file in the resources directory.<br>
+Here - https://chromedriver.chromium.org/downloads <br>
+<br>
 3.
-Create 2 folders inside java directory.
-- Features and 
-- StepDefinition
-
+Create 2 folders inside java directory.<br>
+- Features and <br>
+- StepDefinition<br>
+<br>
 4.
-Create a new file under Features folder with the file name - example.feature and add the Steps.
-Example content is given here:
+Create a new file under Features folder with the file name - example.feature and add the Steps.<br>
+Example content is given here:<br>
 ```
 Feature: WixsiteExample
 
@@ -37,10 +36,10 @@ Scenario: Login functionality exists
   When open wixsite
   Then assert page heading
 ```
-
+<br><br>
 5.
-Create new java file inside StepDefinition folder with the name - Steps.java and add definition for the mentioned steps.
-Example content of the java file :
+Create new java file inside StepDefinition folder with the name - Steps.java and add definition for the mentioned steps.<br>
+Example content of the java file :<br>
 ```
 package StepDefinition;
 
@@ -72,11 +71,11 @@ public class Steps {
     }
 }
 ```
-
+ <br> <br>
 6.
-We have feature file and we have step definition ready now we need to mp them.
-We need to use @CucumberOptions to map these 2 above things.
-Example content is added here:
+We have feature file and we have step definition ready now we need to mp them.<br>
+We need to use @CucumberOptions to map these 2 above things.<br>
+Example content is added here:<br>
 ```
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -92,18 +91,16 @@ public class RunTest
 
 }
 ```
-
-Perfect, This framework is now ready to run.
-
-7.1.
-Simple right click on the file which we created just now > and Click on Run 'RunTest' option.
-
-7.2.
-To run from command line, use the following command :
+ <br> <br>
+Perfect, This framework is now ready to run.<br>
+<br>
+7.
+- Simple right click on the file which we created just now > and Click on Run 'RunTest' option.<br>
+- To run from command line, use the following command :<br>
 ```java -cp <CLASS_PATH> cucumber.api.cli.Main features```
-
-CLASS_PATH all the dependency jars should be mentioned.
-
+ <br>
+CLASS_PATH all the dependency jars should be mentioned.<br>
+ <br> <br>
 This will execute the feature file and will create the HTML report in target/cucumber-reports.html
-
+ <br> <br>
 To automate more cases, We just have to add more files in the Features folder and corresponding Step definition in StepDefinition folder.
