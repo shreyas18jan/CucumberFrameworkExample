@@ -101,7 +101,7 @@ public class RunTest
  <br>
 Perfect, This framework is now ready to run.<br>
 <br>
-7
+7 <br>
 - Simple right click on the file which we created just now > and Click on Run 'RunTest' option.<br>
 - To run from command line, use the following command :<br>
  <br>
