@@ -119,3 +119,43 @@ CLASS_PATH all the dependency jars should be mentioned.<br>
 This will execute the feature file and will create the HTML report in target/cucumber-reports.html
  <br> <br>
 To automate more cases, We just have to add more files in the Features folder and corresponding Step definition in StepDefinition folder.
+
+8 <br>
+**If Code Coverage needs to be added here, Follow the steps:**<br>
+jacoco-maven-plugin : https://mvnrepository.com/artifact/org.jacoco/jacoco-maven-plugin
+
+
+Example pom.xml content for the same: <br>
+
+```
+<plugin>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>0.8.6</version>
+    <configuration>
+        <dataFile>${project.basedir}/target/jacoco.exec</dataFile>
+        <outputDirectory>${project.basedir}/target/code-coverage</outputDirectory>
+        <classDumpDir>${project.basedir}/target/classes</classDumpDir>
+    </configuration>
+    <executions>
+        <execution>
+            <id>prepare-jacoco-agent</id>
+            <goals>
+                <goal>prepare-agent</goal>
+            </goals>
+        </execution>
+        <execution>
+            <id>post-integration-test</id>
+            <phase>test</phase>
+            <goals>
+                <goal>report</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+
+And execute the Above execution command in Step 7.<br>
+This will create a folder inside target directory called code-coverage.<br>
+This folder will have all the classes used in the automation, got to the specific folder and open index.html file in browser.<br>
+![ScreenShot](/src/test/resources/codeCoverageScreenShot.png)
