@@ -102,15 +102,20 @@ public class RunTest
 Perfect, This framework is now ready to run.<br>
 <br>
 7 <br>
+
 - Simple right click on the file which we created just now > and Click on Run 'RunTest' option.<br>
+
 - To run from command line, use the following command :<br>
- <br>
- 
+
 ```java -cp <CLASS_PATH> cucumber.api.cli.Main features```
+ <br><br>
+- To use maven command , use the following command :<br>
+
+```mvn clean install test -Ddriver.location=<DRIVER_PATH>```
  <br>
- <br>
+<br>
 CLASS_PATH all the dependency jars should be mentioned.<br>
- <br> <br>
+ <br>
 This will execute the feature file and will create the HTML report in target/cucumber-reports.html
  <br> <br>
 To automate more cases, We just have to add more files in the Features folder and corresponding Step definition in StepDefinition folder.
