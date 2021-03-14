@@ -21,7 +21,7 @@ public class Steps {
     }
 
     @When("^open wixsite$")
-    public void goToFacebook() {
+    public void goToWixsite() {
         driver.navigate().to("https://shreyas18jan.wixsite.com/thecommonsite");
     }
 
